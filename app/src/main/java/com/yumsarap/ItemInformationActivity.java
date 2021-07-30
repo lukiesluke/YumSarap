@@ -11,7 +11,8 @@ import com.yumsarap.model.Menu;
 
 public class ItemInformationActivity extends AppCompatActivity implements OrderInformationFragment.onBackButtonPress {
 
-    public static final String KEY_MENU = "KEY_MENU";
+    public static final String KEY_MENU_SELECT_ITEM = "KEY_MENU_SELECT_ITEM";
+    public static final String KEY_MENU_LIST_ITEM = "KEY_MENU_LIST_ITEM";
     private final Gson gson = new Gson();
 
     @Override
@@ -20,10 +21,10 @@ public class ItemInformationActivity extends AppCompatActivity implements OrderI
         setContentView(R.layout.activity_item_information);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            Menu menu = gson.fromJson(bundle.getString(KEY_MENU), Menu.class);
+            Menu menu = gson.fromJson(bundle.getString(KEY_MENU_SELECT_ITEM), Menu.class);
 
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment_container_view, OrderInformationFragment.newInstance(bundle.getString(KEY_MENU), this));
+            ft.replace(R.id.fragment_container_view, OrderInformationFragment.newInstance(bundle.getString(KEY_MENU_SELECT_ITEM), bundle.getString(KEY_MENU_LIST_ITEM), this));
             ft.commit();
         }
     }

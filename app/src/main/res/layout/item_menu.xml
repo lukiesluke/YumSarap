@@ -21,18 +21,19 @@
 
     <TextView
         android:id="@+id/item_name"
-        android:layout_width="251dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/item_image"
         android:padding="@dimen/small"
         android:text="@string/spaghetti"
         android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/item_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/item_description"
-        android:layout_width="251dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/item_name"
         android:ellipsize="end"
@@ -43,17 +44,19 @@
         android:paddingRight="@dimen/small"
         android:text="Juicy seasoned beef and pork meatballs in an easy homemade tomato sauce."
         android:textColor="@android:color/black"
+        app:layout_constraintEnd_toStartOf="@+id/item_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_name" />
 
     <TextView
         android:id="@+id/item_price"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
         android:padding="@dimen/small"
         android:text="P 200"
         android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/item_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_description" />
 

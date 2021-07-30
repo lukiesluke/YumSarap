@@ -117,10 +117,12 @@ public class MainMenuFragment extends BaseFragment implements MenuAdapter.OnMenu
     @Override
     public void itemClickedMenu(View view, int position) {
         Menu menu = (Menu) view.getTag();
-        String menuString = gson.toJson(menu);
+        String menuItemString = gson.toJson(menu);
+        String menuListItemString = gson.toJson(menuList);
 
         Intent intent = new Intent(getActivity(), ItemInformationActivity.class);
-        intent.putExtra(ItemInformationActivity.KEY_MENU, menuString);
+        intent.putExtra(ItemInformationActivity.KEY_MENU_SELECT_ITEM, menuItemString);
+        intent.putExtra(ItemInformationActivity.KEY_MENU_LIST_ITEM, menuListItemString);
         startActivity(intent);
         requireActivity().overridePendingTransition(R.xml.enter, R.xml.exit);
     }
