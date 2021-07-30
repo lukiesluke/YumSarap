@@ -10,13 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yumsarap.R;
+import com.yumsarap.Utils;
 import com.yumsarap.model.Menu;
 
 import java.util.List;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     private List<Menu> menuList;
-    private OnMenuClickListener listener;
+    private final OnMenuClickListener listener;
+    private Context context;
 
     public MenuAdapter(List<Menu> menuList, OnMenuClickListener listener) {
         this.menuList = menuList;
@@ -31,8 +33,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
+        context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
+
         View view = inflater.inflate(R.layout.item_menu, parent, false);
         return new ViewHolder(view);
     }
@@ -66,6 +69,10 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
             title = itemView.findViewById(R.id.item_name);
             description = itemView.findViewById(R.id.item_description);
             price = itemView.findViewById(R.id.item_price);
+
+            title.setTypeface(Utils.typefaceSemiBold(context));
+            description.setTypeface(Utils.typefaceLight(context));
+            price.setTypeface(Utils.typefaceRegular(context));
         }
 
         @Override

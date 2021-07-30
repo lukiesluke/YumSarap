@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.yumsarap.R;
+import com.yumsarap.Utils;
 import com.yumsarap.model.Menu;
 
 import java.util.Objects;
@@ -54,6 +55,7 @@ public class OrderInformationFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             menu = gson.fromJson(mParam1, Menu.class);
@@ -79,9 +81,11 @@ public class OrderInformationFragment extends BaseFragment {
                 }
                 if (scrollRange + verticalOffset == 0) {
                     collapsingToolbarLayout.setTitle(menu.getTitle());
+                    collapsingToolbarLayout.setCollapsedTitleTypeface(Utils.typefaceLight(requireContext()));
                     isShow = true;
                 } else if (isShow) {
                     collapsingToolbarLayout.setTitle(getString(R.string.app_name));//careful there should a space between double quote otherwise it wont work
+                    collapsingToolbarLayout.setExpandedTitleTypeface(Utils.typefaceRegular(requireContext()));
                     isShow = false;
                 }
             }
@@ -103,6 +107,10 @@ public class OrderInformationFragment extends BaseFragment {
         title.setText(menu.getTitle());
         description.setText(menu.getDescription());
         price.setText(menu.getPrice());
+
+        title.setTypeface(Utils.typefaceSemiBold(requireContext()));
+        description.setTypeface(Utils.typefaceLight(requireContext()));
+        price.setTypeface(Utils.typefaceRegular(requireContext()));
         return view;
     }
 

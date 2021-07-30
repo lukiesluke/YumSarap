@@ -29,8 +29,6 @@
         android:padding="@dimen/small"
         android:text="@string/spaghetti"
         android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/item_price"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_image" />
@@ -46,8 +44,7 @@
         android:layout_marginRight="@dimen/medium"
         android:padding="@dimen/small"
         android:text="Juicy seasoned beef and pork meatballs in an easy homemade tomato sauce."
-        android:textColor="@android:color/darker_gray"
-        android:textSize="20sp"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_name" />
 
@@ -60,8 +57,6 @@
         android:padding="@dimen/small"
         android:text="P 200"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="normal"
         app:layout_constraintBottom_toTopOf="@+id/item_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_image" />

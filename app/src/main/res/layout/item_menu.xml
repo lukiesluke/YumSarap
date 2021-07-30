@@ -10,6 +10,8 @@
         android:id="@+id/item_image"
         android:layout_width="130dp"
         android:layout_height="100dp"
+        android:layout_marginStart="@dimen/small"
+        android:layout_marginLeft="@dimen/small"
         android:contentDescription="@string/spaghetti"
         android:scaleType="centerCrop"
         android:src="@drawable/menu_spaghetti"
@@ -25,8 +27,6 @@
         android:padding="@dimen/small"
         android:text="@string/spaghetti"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,11 +36,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/item_name"
         android:ellipsize="end"
-        android:lines="2"
-        android:padding="@dimen/small"
+        android:lines="3"
+        android:paddingStart="@dimen/small"
+        android:paddingLeft="@dimen/small"
+        android:paddingEnd="@dimen/small"
+        android:paddingRight="@dimen/small"
         android:text="Juicy seasoned beef and pork meatballs in an easy homemade tomato sauce."
-        android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_name" />
 
@@ -52,8 +54,6 @@
         android:padding="@dimen/small"
         android:text="P 200"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_description" />
 

@@ -10,6 +10,11 @@
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingStart="@dimen/small"
+        android:paddingLeft="@dimen/small"
+        android:paddingEnd="@dimen/small"
+        android:paddingRight="@dimen/small"
+        tools:ignore="RtlSymmetry"
         tools:listitem="@layout/item_menu" />
 
 </FrameLayout>
