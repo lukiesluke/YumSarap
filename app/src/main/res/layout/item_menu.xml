@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:padding="@dimen/small">
+
+    <ImageView
+        android:id="@+id/item_image"
+        android:layout_width="130dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/spaghetti"
+        android:scaleType="centerCrop"
+        android:src="@drawable/menu_spaghetti"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="251dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_image"
+        android:padding="@dimen/small"
+        android:text="@string/spaghetti"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_description"
+        android:layout_width="251dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_name"
+        android:ellipsize="end"
+        android:lines="2"
+        android:padding="@dimen/small"
+        android:text="Juicy seasoned beef and pork meatballs in an easy homemade tomato sauce."
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_name" />
+
+    <TextView
+        android:id="@+id/item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:padding="@dimen/small"
+        android:text="P 200"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_description" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
