@@ -50,8 +50,34 @@
         android:background="@drawable/bg_layout"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <include layout="@layout/layout_order_item" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <include layout="@layout/layout_order_item" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xlarge"
+                android:padding="@dimen/medium"
+                android:text="@string/label"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small"
+                android:paddingStart="@dimen/small"
+                android:paddingLeft="@dimen/small"
+                android:paddingEnd="@dimen/small"
+                android:paddingRight="@dimen/small"
+                tools:ignore="RtlSymmetry"
+                tools:listitem="@layout/item_menu" />
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

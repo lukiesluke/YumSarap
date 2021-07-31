@@ -2,14 +2,14 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
-    android:layout_width="match_parent"
+    android:layout_width="200dp"
     android:layout_height="wrap_content"
     android:foreground="@drawable/custom_bg_ripple"
     card_view:cardCornerRadius="4dp"
     card_view:cardElevation="2dp"
     card_view:cardUseCompatPadding="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
@@ -17,16 +17,14 @@
 
         <ImageView
             android:id="@+id/item_image"
-            android:layout_width="130dp"
+            android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_marginStart="@dimen/small"
-            android:layout_marginLeft="@dimen/small"
             android:contentDescription="@string/spaghetti"
             android:scaleType="centerCrop"
             android:src="@drawable/menu_spaghetti"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/item_name"
@@ -36,9 +34,22 @@
             android:padding="@dimen/small"
             android:text="@string/spaghetti"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/item_image"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="1.0"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/item_image" />
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:padding="@dimen/small"
+            android:text="P 200"
+            android:textColor="@color/black"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/item_description" />
 
         <TextView
             android:id="@+id/item_description"
@@ -53,21 +64,10 @@
             android:paddingRight="@dimen/small"
             android:text="Juicy seasoned beef and pork meatballs in an easy homemade tomato sauce."
             android:textColor="@android:color/black"
-            app:layout_constraintEnd_toStartOf="@+id/item_image"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_name" />
-
-        <TextView
-            android:id="@+id/item_price"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:padding="@dimen/small"
-            android:text="P 200"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/item_image"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_description" />
-
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/item_name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.cardview.widget.CardView>

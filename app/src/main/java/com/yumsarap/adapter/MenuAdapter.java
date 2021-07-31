@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,10 +20,13 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     private List<Menu> menuList;
     private final OnMenuClickListener listener;
     private Context context;
+    @LayoutRes
+    private int layoutRes;
 
-    public MenuAdapter(List<Menu> menuList, OnMenuClickListener listener) {
+    public MenuAdapter(List<Menu> menuList, OnMenuClickListener listener, @LayoutRes int layoutRes) {
         this.menuList = menuList;
         this.listener = listener;
+        this.layoutRes = layoutRes;
     }
 
     public void setMenu(List<Menu> menuList) {
@@ -36,7 +40,11 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View view = inflater.inflate(R.layout.item_menu, parent, false);
+        if (layoutRes == -1) {
+            layoutRes = R.layout.item_menu;
+        }
+
+        View view = inflater.inflate(layoutRes, parent, false);
         return new ViewHolder(view);
     }
 

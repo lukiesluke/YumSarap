@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,12 +14,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.vectordrawable.graphics.drawable.AnimationUtilsCompat;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.gson.reflect.TypeToken;
 import com.yumsarap.R;
 import com.yumsarap.Utils;
+import com.yumsarap.adapter.MenuAdapter;
 import com.yumsarap.model.Menu;
 import com.yumsarap.mvp.presenter.OrderPresenter;
 import com.yumsarap.mvp.view.OrderInformationView;
@@ -31,7 +37,7 @@ import java.util.Objects;
  * Use the {@link OrderInformationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class OrderInformationFragment extends BaseFragment implements OrderInformationView {
+public class OrderInformationFragment extends BaseFragment implements OrderInformationView, MenuAdapter.OnMenuClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,6 +55,8 @@ public class OrderInformationFragment extends BaseFragment implements OrderInfor
     private Toolbar toolbar;
     private final onBackButtonPress listener;
     private final OrderPresenter presenter;
+    private RecyclerView recyclerView;
+    private MenuAdapter adapter;
 
     public OrderInformationFragment(onBackButtonPress listener) {
         this.listener = listener;
@@ -109,6 +117,16 @@ public class OrderInformationFragment extends BaseFragment implements OrderInfor
                 }
             }
         });
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext(),
+                LinearLayoutManager.HORIZONTAL, false);
+
+        recyclerView = view.findViewById(R.id.recycler);
+        adapter = new MenuAdapter(menuList, this, R.layout.item_menu_b);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setAdapter(adapter);
+        adapter.setMenu(menuList);
         return view;
     }
 
@@ -151,6 +169,19 @@ public class OrderInformationFragment extends BaseFragment implements OrderInfor
         title.setTypeface(Utils.typefaceSemiBold(requireContext()));
         description.setTypeface(Utils.typefaceLight(requireContext()));
         price.setTypeface(Utils.typefaceRegular(requireContext()));
+    }
+
+    @Override
+    public void itemClickedMenu(View view, int position) {
+        menu = (Menu) view.getTag();
+
+        title.setText(menu.getTitle());
+        description.setText(menu.getDescription());
+        price.setText(menu.getPrice());
+
+        title.startAnimation(AnimationUtils.loadAnimation(requireContext(), android.R.anim.fade_out));
+        description.startAnimation(AnimationUtils.loadAnimation(requireContext(), android.R.anim.fade_out));
+        price.startAnimation(AnimationUtils.loadAnimation(requireContext(), android.R.anim.fade_out));
     }
 
     public interface onBackButtonPress {
