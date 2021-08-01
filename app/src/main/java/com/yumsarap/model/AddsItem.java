@@ -1,11 +1,14 @@
 package com.yumsarap.model;
 
-public class Menu {
+import com.lwg.commons.adapter.RecyclerViewType;
+import com.yumsarap.utils.RecyclerViewConstants;
+
+public class AddsItem implements RecyclerViewType {
     private String title;
     private String description;
     private String price;
 
-    public Menu() {
+    public AddsItem() {
     }
 
     public String getTitle() {
@@ -30,5 +33,10 @@ public class Menu {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    @Override
+    public int getViewType() {
+        return RecyclerViewConstants.SELECTED_ADDS_ITEM;
     }
 }

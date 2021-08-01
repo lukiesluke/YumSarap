@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
@@ -16,7 +15,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.vectordrawable.graphics.drawable.AnimationUtilsCompat;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -24,7 +22,7 @@ import com.google.gson.reflect.TypeToken;
 import com.yumsarap.R;
 import com.yumsarap.Utils;
 import com.yumsarap.adapter.MenuAdapter;
-import com.yumsarap.model.Menu;
+import com.yumsarap.model.MenuItem;
 import com.yumsarap.mvp.presenter.OrderPresenter;
 import com.yumsarap.mvp.view.OrderInformationView;
 
@@ -47,16 +45,14 @@ public class OrderInformationFragment extends BaseFragment implements OrderInfor
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private Menu menu;
-    private List<Menu> menuList;
+    private MenuItem menu;
+    private List<MenuItem> menuList;
     private TextView title;
     private TextView description;
     private TextView price;
     private Toolbar toolbar;
     private final onBackButtonPress listener;
     private final OrderPresenter presenter;
-    private RecyclerView recyclerView;
-    private MenuAdapter adapter;
 
     public OrderInformationFragment(onBackButtonPress listener) {
         this.listener = listener;
@@ -80,12 +76,12 @@ public class OrderInformationFragment extends BaseFragment implements OrderInfor
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
 
-            menu = gson.fromJson(mParam1, Menu.class);
+            menu = gson.fromJson(mParam1, MenuItem.class);
             //Convert string arrayList to model object
-            menuList = gson.fromJson(mParam2, new TypeToken<List<Menu>>() {
+            menuList = gson.fromJson(mParam2, new TypeToken<List<MenuItem>>() {
             }.getType());
         } else {
-            menu = new Menu();
+            menu = new MenuItem();
             menuList = new ArrayList<>();
         }
     }
@@ -121,8 +117,8 @@ public class OrderInformationFragment extends BaseFragment implements OrderInfor
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext(),
                 LinearLayoutManager.HORIZONTAL, false);
 
-        recyclerView = view.findViewById(R.id.recycler);
-        adapter = new MenuAdapter(menuList, this, R.layout.item_menu_b);
+        RecyclerView recyclerView = view.findViewById(R.id.recycler);
+        MenuAdapter adapter = new MenuAdapter(menuList, this, R.layout.item_menu_b);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setAdapter(adapter);
@@ -173,7 +169,7 @@ public class OrderInformationFragment extends BaseFragment implements OrderInfor
 
     @Override
     public void itemClickedMenu(View view, int position) {
-        menu = (Menu) view.getTag();
+        menu = (MenuItem) view.getTag();
 
         title.setText(menu.getTitle());
         description.setText(menu.getDescription());

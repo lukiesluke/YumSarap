@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_header_title_and_description"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_small"
+    android:layout_marginLeft="@dimen/margin_small"
+    android:layout_marginTop="@dimen/margin_normal"
+    android:layout_marginEnd="@dimen/margin_small"
+    android:layout_marginRight="@dimen/margin_small"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textview_title"
+        style="@style/Avenir.H3.D"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textview_description"
+        style="@style/Avenir.B1.D"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="all" />
+</LinearLayout>

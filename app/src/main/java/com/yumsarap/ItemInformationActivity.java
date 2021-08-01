@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.gson.Gson;
 import com.yumsarap.fragment.OrderInformationFragment;
-import com.yumsarap.model.Menu;
+import com.yumsarap.model.MenuItem;
 
 public class ItemInformationActivity extends AppCompatActivity implements OrderInformationFragment.onBackButtonPress {
 
@@ -21,7 +21,7 @@ public class ItemInformationActivity extends AppCompatActivity implements OrderI
         setContentView(R.layout.activity_item_information);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            Menu menu = gson.fromJson(bundle.getString(KEY_MENU_SELECT_ITEM), Menu.class);
+            MenuItem menu = gson.fromJson(bundle.getString(KEY_MENU_SELECT_ITEM), MenuItem.class);
 
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container_view, OrderInformationFragment.newInstance(bundle.getString(KEY_MENU_SELECT_ITEM), bundle.getString(KEY_MENU_LIST_ITEM), this));

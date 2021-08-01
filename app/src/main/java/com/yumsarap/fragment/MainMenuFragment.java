@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.yumsarap.ItemInformationActivity;
 import com.yumsarap.R;
 import com.yumsarap.adapter.MenuAdapter;
-import com.yumsarap.model.Menu;
+import com.yumsarap.model.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ import java.util.List;
 public class MainMenuFragment extends BaseFragment implements MenuAdapter.OnMenuClickListener {
     private RecyclerView recyclerView;
     private MenuAdapter adapter;
-    private List<Menu> menuList;
+    private List<MenuItem> menuList;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -76,25 +76,25 @@ public class MainMenuFragment extends BaseFragment implements MenuAdapter.OnMenu
 
         menuList = new ArrayList<>();
 
-        Menu menu = new Menu();
+        MenuItem menu = new MenuItem();
         menu.setTitle("Spaghetti");
         menu.setDescription("Juicy seasoned beef and pork meatballs in an easy homemade tomato sauce.");
         menu.setPrice("P 80");
         menuList.add(menu);
 
-        Menu menu2 = new Menu();
+        MenuItem menu2 = new MenuItem();
         menu2.setTitle("Lechon Kawali");
         menu2.setDescription("Juicy seasoned beef and pork meatballs in an easy homemade tomato sauce.");
         menu2.setPrice("P 100");
         menuList.add(menu2);
 
-        Menu menu3 = new Menu();
+        MenuItem menu3 = new MenuItem();
         menu3.setTitle("Ginataan");
         menu3.setDescription("Juicy seasoned beef and pork meatballs in an easy homemade tomato sauce.");
         menu3.setPrice("P 30");
         menuList.add(menu3);
 
-        Menu menu4 = new Menu();
+        MenuItem menu4 = new MenuItem();
         menu4.setTitle("Toron Langka");
         menu4.setDescription("Juicy seasoned beef and pork meatballs in an easy homemade tomato sauce.");
         menu4.setPrice("P 20");
@@ -113,7 +113,7 @@ public class MainMenuFragment extends BaseFragment implements MenuAdapter.OnMenu
 
     @Override
     public void itemClickedMenu(View view, int position) {
-        Menu menu = (Menu) view.getTag();
+        MenuItem menu = (MenuItem) view.getTag();
         String menuItemString = gson.toJson(menu);
         String menuListItemString = gson.toJson(menuList);
 

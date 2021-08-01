@@ -13,4 +13,32 @@
     <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="textAllCaps">false</item>
     </style>
+
+    <style name="Avenir">
+        <!-- Style base Font family Avenir -->
+    </style>
+
+    <style name="Avenir.B1">
+        <item name="android:textSize">@dimen/font_size_B1</item>
+    </style>
+
+    <style name="Avenir.B1.D">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Avenir.H3">
+        <item name="android:textSize">@dimen/font_size_H3</item>
+    </style>
+
+    <style name="Avenir.H3.D">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="HR">
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@android:color/darker_gray</item>
+        <item name="android:layout_marginTop">@dimen/margin_large</item>
+        <item name="android:layout_marginBottom">@dimen/margin_large</item>
+    </style>
 </resources>
