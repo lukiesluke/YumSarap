@@ -23,7 +23,7 @@ public class MenuListAdapter extends BaseViewAdapter implements HeaderTitleAndDe
 
         delegateAdapters = new SparseArrayCompat<>();
         delegateAdapters.put(RecyclerViewConstants.SELECTED_MAIN_HEADER_ITEM, new MainHeaderDelegateAdapter(this, R.layout.item_main_header));
-        delegateAdapters.put(RecyclerViewConstants.SELECTED_TICKET_TITLE, new HeaderTitleAndDescriptionDelegateAdapter(this, R.layout.item_header_text_and_description));
+        delegateAdapters.put(RecyclerViewConstants.SELECTED_TITLE_ORDER, new HeaderTitleAndDescriptionDelegateAdapter(this, R.layout.item_header_text_and_description));
         delegateAdapters.put(RecyclerViewConstants.SELECTED_MENU_ITEM, new MenuItemDelegateAdapter(listItemMenuListener));
         delegateAdapters.put(RecyclerViewConstants.SELECTED_ADDS_ITEM, addsDelegateAdapter);
     }
@@ -49,7 +49,7 @@ public class MenuListAdapter extends BaseViewAdapter implements HeaderTitleAndDe
 
     @Override
     public void onListItemClicked(int position, CharSequence title) {
-        Log.d("lwg", "position: " + position + " : " + title);
+        Log.d("lwg", "Menu Item clicked() position: " + position + " : " + title);
     }
 
     @Override

@@ -12,7 +12,7 @@ public class HeaderTitleAndDescriptionItem implements RecyclerViewType {
 
     private String title;
     private String description;
-    private int viewType = RecyclerViewConstants.SELECTED_TICKET_TITLE;
+    private int viewType = RecyclerViewConstants.SELECTED_TITLE_ORDER;
     @StringRes
     private int titleRes = View.NO_ID;
     @StringRes

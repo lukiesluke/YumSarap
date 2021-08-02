@@ -55,7 +55,7 @@ public class AddsDelegateAdapter implements DelegateAdapter<AddsDelegateAdapter.
 
         @Override
         public void addsItemClicked(View view, int position) {
-            Log.d("lwg", addsItems.get(position).getTitle());
+            Log.d("lwg", "AddsDelegateAdapter: " + addsItems.get(position).getTitle());
         }
     }
 }

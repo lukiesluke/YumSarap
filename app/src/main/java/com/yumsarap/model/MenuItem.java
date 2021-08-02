@@ -7,6 +7,7 @@ public class MenuItem implements RecyclerViewType {
     private String title;
     private String description;
     private String price;
+    private int viewType = RecyclerViewConstants.SELECTED_MENU_ITEM;
 
     public MenuItem() {
     }
@@ -35,8 +36,12 @@ public class MenuItem implements RecyclerViewType {
         this.price = price;
     }
 
+    public void setViewType(int viewType) {
+        this.viewType = viewType;
+    }
+
     @Override
     public int getViewType() {
-        return RecyclerViewConstants.SELECTED_MENU_ITEM;
+        return viewType;
     }
 }
