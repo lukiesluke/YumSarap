@@ -2,6 +2,7 @@ package com.yumsarap.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -152,6 +153,8 @@ public class MenuListFragment extends BaseFragment implements MenuItemDelegateAd
         MenuItem menu = (MenuItem) v.getTag();
         String menuItemString = gson.toJson(menu);
         String menuListItemString = gson.toJson(itemList());
+
+        Log.d("lwg", "onListItemMenuClicked()) position: " + adapterPosition + "\n" + menuItemString);
 
         Intent intent = new Intent(getActivity(), ItemInformationActivity.class);
         intent.putExtra(ItemInformationActivity.KEY_MENU_SELECT_ITEM, menuItemString);
