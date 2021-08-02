@@ -16,7 +16,7 @@ import com.yumsarap.utils.RecyclerViewConstants;
 
 import java.util.List;
 
-public class MenuListAdapter extends BaseViewAdapter implements HeaderTitleAndDescriptionDelegateAdapter.ListItemListener, MainHeaderDelegateAdapter.MainHeaderItemListener {
+public class MenuListAdapter extends BaseViewAdapter implements HeaderTitleAndDescriptionDelegateAdapter.HeaderClickListener, MainHeaderDelegateAdapter.MainHeaderItemListener {
     AddsDelegateAdapter addsDelegateAdapter = new AddsDelegateAdapter();
 
     public MenuListAdapter(MenuItemDelegateAdapter.ListItemMenuListener listItemMenuListener) {
@@ -48,8 +48,8 @@ public class MenuListAdapter extends BaseViewAdapter implements HeaderTitleAndDe
     }
 
     @Override
-    public void onListItemClicked(int position, CharSequence title) {
-        Log.d("lwg", "Menu Item clicked() position: " + position + " : " + title);
+    public void onHeaderClickListener(int position, CharSequence title) {
+        Log.d("lwg", "onHeaderClickListener: " + position + " : " + title);
     }
 
     @Override

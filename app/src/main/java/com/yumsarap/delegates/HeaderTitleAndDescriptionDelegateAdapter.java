@@ -16,15 +16,15 @@ import com.yumsarap.model.HeaderTitleAndDescriptionItem;
 
 public class HeaderTitleAndDescriptionDelegateAdapter implements DelegateAdapter<HeaderTitleAndDescriptionDelegateAdapter.HeaderTitleAndDescriptionViewHolder, HeaderTitleAndDescriptionItem> {
 
-    private final ListItemListener listener;
+    private final HeaderClickListener listener;
     @LayoutRes
     private final int layoutId;
 
-    public interface ListItemListener {
-        void onListItemClicked(int position, CharSequence title);
+    public interface HeaderClickListener {
+        void onHeaderClickListener(int position, CharSequence title);
     }
 
-    public HeaderTitleAndDescriptionDelegateAdapter(ListItemListener listener, int layoutId) {
+    public HeaderTitleAndDescriptionDelegateAdapter(HeaderClickListener listener, int layoutId) {
         this.listener = listener;
         this.layoutId = layoutId;
     }
@@ -73,7 +73,7 @@ public class HeaderTitleAndDescriptionDelegateAdapter implements DelegateAdapter
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (listener != null) {
-                listener.onListItemClicked(position, title.getText());
+                listener.onHeaderClickListener(position, title.getText());
             }
         }
     }
